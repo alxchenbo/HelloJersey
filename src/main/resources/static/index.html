@@ -54,11 +54,15 @@
             var url ="/api/books?title="+title;
             loadBooks(url);
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your code goes here.
+            // The HTML is ready to be manipulated.
+            loadBooks('/api/books');
 
-
+        });
     </script>
 </head>
-<body onload="loadBooks('/api/books')">
+<body>
 
 <h1>Biblioth&egrave;que</h1>
 
