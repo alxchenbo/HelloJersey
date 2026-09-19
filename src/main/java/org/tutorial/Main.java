@@ -29,7 +29,8 @@ public class Main {
         String baseUri = props.getProperty("server.base.uri");
         String apiUri = baseUri+props.getProperty("server.api.uri");
 
-        final ResourceConfig rc = new ResourceConfig().packages("org.tutorial");
+        final ResourceConfig rc = new ResourceConfig();
+        rc.register(BookController.class);
 
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(URI.create(apiUri), rc);
 
