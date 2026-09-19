@@ -6,10 +6,12 @@ import jakarta.ws.rs.core.MediaType;
 
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Path("/books")
 public class BookController {
 
+	private static final Logger LOGGER = Logger.getLogger(BookController.class.getName());
 	private BookDAO bookDAO = new BookDAOImpl();
 	// private BookDAO bookDAO = new BookDAOMockImpl();
 
@@ -17,6 +19,8 @@ public class BookController {
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/hello")
 	public String hello() {
+
+		LOGGER.info("Hello world !");
 		return "Hello World!";
 	}
 

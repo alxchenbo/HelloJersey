@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 public class Main {
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
 
         Properties props = new Properties();
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("application.properties")) {
             if (input == null) {
-                System.out.println("Erreur : le fichier application.properties est introuvable.");
+               LOGGER.severe("Erreur : le fichier application.properties est introuvable.");
                 return;
             }
             props.load(input);
@@ -37,8 +39,7 @@ public class Main {
         CLStaticHttpHandler staticHttpHandler = new CLStaticHttpHandler(Main.class.getClassLoader(), "/static/");
         server.getServerConfiguration().addHttpHandler(staticHttpHandler, "/");
 
-        System.out.println("L'API JAX-RS est accessible sur : " + apiUri);
-        System.out.println("Les pages Web statiques sont servies à la racine du serveur : "+baseUri);
-        System.out.println("Appuyez sur Ctrl+C pour arrêter le serveur...");
+       LOGGER.info("L'API JAX-RS est accessible sur : " + apiUri);
+       LOGGER.info("Les pages Web statiques sont servies à la racine du serveur : "+baseUri);
     }
 }
