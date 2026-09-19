@@ -5,7 +5,7 @@ import java.util.List;
 public class BookDAOMockImpl implements BookDAO {
 
 	@Override
-	public List<Book> findByAll() {
+	public List<Book> findAll() {
 		List<Book> books = initBooks();
 		return books;
 	}

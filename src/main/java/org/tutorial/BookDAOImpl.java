@@ -38,7 +38,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public List<Book> findByAll() {
+    public List<Book> findAll() {
         return findByQuery("select id, title, author from books");
     }
 }

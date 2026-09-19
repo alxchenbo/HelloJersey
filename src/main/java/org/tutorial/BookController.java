@@ -31,7 +31,7 @@ public class BookController {
 		if (title != null && !title.isEmpty()) {
 			books = bookDAO.findByTitle(title);
 		} else {
-			books = bookDAO.findByAll();
+			books = bookDAO.findAll();
 		}
 
 

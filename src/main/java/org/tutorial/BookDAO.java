@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BookDAO {
 
-	List<Book> findByAll();
+	List<Book> findAll();
 
 	List<Book> findByTitle(String searchText);
 }
